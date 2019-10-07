@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PokeApp</string>
+    <string name="retry">retry</string>
+    <string name="item_pokemon_content_description">Pokemon</string>
+</resources>

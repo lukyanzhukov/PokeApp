@@ -1,12 +1,14 @@
 package com.lukianbat.test.pokeapp.feature.posts.data.repository
 
-import com.lukianbat.test.pokeapp.feature.posts.domain.model.PokemonDto
-import com.lukianbat.test.pokeapp.feature.posts.domain.model.PokemonsListNetworkDto
+import com.lukianbat.test.pokeapp.feature.posts.data.datasource.api.model.PokemonCommonResponse
+import com.lukianbat.test.pokeapp.feature.posts.domain.model.*
 import javax.inject.Inject
 
 interface PokemonsConverter {
 
-    fun convert(response: PokemonsListNetworkDto, start: Int): List<PokemonDto>
+    fun convert(
+        response: List<PokemonCommonResponse>
+    ): List<PokemonDto>
 }
 
 private const val IMAGE_URL =
@@ -17,14 +19,39 @@ private const val IMAGE_SUFFIX = ".png"
 class PokemonsConverterImpl @Inject constructor() :
     PokemonsConverter {
 
-    override fun convert(response: PokemonsListNetworkDto, start: Int): List<PokemonDto> =
-        response.results.mapIndexed { index, dto ->
+    override fun convert(
+        response: List<PokemonCommonResponse>
+    ): List<PokemonDto> =
+        response.map { res ->
+            val dto = res.pokemonNetworkDto
+            val detailDto = res.pokemonDetailNetworkDto
             val pokemonId = dto.url.split(URL_DIVIDER)
                 .filterNot {
                     it.isBlank()
                 }.last()
-            val pokemonDto = PokemonDto(dto.name, IMAGE_URL + pokemonId + IMAGE_SUFFIX)
-            pokemonDto.indexInResponse = start + index
-            pokemonDto
+            val imageUrl = IMAGE_URL + pokemonId + IMAGE_SUFFIX
+            val types = detailDto.types.map {
+                it.type.name
+            }
+            val abilities = detailDto.abilities.map {
+                it.ability.name
+            }
+            PokemonDto(
+                dto.name,
+                imageUrl,
+                detailDto.stats[ATTACK_INDEX].base_stat,
+                detailDto.stats[DEFENCE_INDEX].base_stat,
+                detailDto.stats[HP_INDEX].base_stat,
+                types,
+                abilities,
+                detailDto.height,
+                detailDto.weight
+            )
         }
+
+    companion object {
+        const val ATTACK_INDEX = 4
+        const val DEFENCE_INDEX = 3
+        const val HP_INDEX = 5
+    }
 }

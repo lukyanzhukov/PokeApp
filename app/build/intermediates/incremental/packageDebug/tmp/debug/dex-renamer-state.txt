@@ -1,4 +1,4 @@
-#Mon Oct 07 23:31:02 KRAT 2019
+#Wed Oct 09 00:21:05 KRAT 2019
 base.0=C\:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

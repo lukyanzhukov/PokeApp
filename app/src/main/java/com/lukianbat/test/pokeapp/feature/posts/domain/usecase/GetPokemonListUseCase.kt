@@ -14,4 +14,5 @@ class GetPokemonListUseCaseImpl @Inject constructor(private val repository: Poke
 
     override fun getPosts(): Listing<PokemonDto> = repository.posts()
 
+
 }

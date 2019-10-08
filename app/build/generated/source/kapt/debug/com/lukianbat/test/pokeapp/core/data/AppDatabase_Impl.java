@@ -32,9 +32,9 @@ public final class AppDatabase_Impl extends AppDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `pokemons` (`indexInResponse` INTEGER NOT NULL, `name` TEXT NOT NULL, `url` TEXT NOT NULL, PRIMARY KEY(`name`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `pokemons` (`name` TEXT NOT NULL, `url` TEXT NOT NULL, `attack` INTEGER NOT NULL, `defence` INTEGER NOT NULL, `hp` INTEGER NOT NULL, `types` TEXT NOT NULL, `abilities` TEXT NOT NULL, `height` INTEGER NOT NULL, `weight` INTEGER NOT NULL, PRIMARY KEY(`name`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '35b6fdf0c6bd9bc64d169091e7da00a4')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0a77e197591305f90ddbb8bc57256527')");
       }
 
       @Override
@@ -78,10 +78,16 @@ public final class AppDatabase_Impl extends AppDatabase {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsPokemons = new HashMap<String, TableInfo.Column>(3);
-        _columnsPokemons.put("indexInResponse", new TableInfo.Column("indexInResponse", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashMap<String, TableInfo.Column> _columnsPokemons = new HashMap<String, TableInfo.Column>(9);
         _columnsPokemons.put("name", new TableInfo.Column("name", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsPokemons.put("url", new TableInfo.Column("url", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPokemons.put("attack", new TableInfo.Column("attack", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPokemons.put("defence", new TableInfo.Column("defence", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPokemons.put("hp", new TableInfo.Column("hp", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPokemons.put("types", new TableInfo.Column("types", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPokemons.put("abilities", new TableInfo.Column("abilities", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPokemons.put("height", new TableInfo.Column("height", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPokemons.put("weight", new TableInfo.Column("weight", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysPokemons = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesPokemons = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoPokemons = new TableInfo("pokemons", _columnsPokemons, _foreignKeysPokemons, _indicesPokemons);
@@ -93,7 +99,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "35b6fdf0c6bd9bc64d169091e7da00a4", "36c9e2408d602d8f1f890996309c6319");
+    }, "0a77e197591305f90ddbb8bc57256527", "da0a99054639e0fb79504e5dcbddc4cf");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

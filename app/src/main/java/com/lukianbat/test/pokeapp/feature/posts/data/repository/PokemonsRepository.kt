@@ -10,8 +10,10 @@ import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.Network
 import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.SubredditBoundaryCallback
 import com.lukianbat.test.pokeapp.feature.posts.data.datasource.api.PokemonListApiDataSource
 import com.lukianbat.test.pokeapp.feature.posts.data.datasource.db.PokemonCacheDataSource
+import com.lukianbat.test.pokeapp.feature.posts.data.datasource.api.model.PokemonCommonResponse
+import com.lukianbat.test.pokeapp.feature.posts.data.datasource.api.model.PokemonDetailNetworkDto
 import com.lukianbat.test.pokeapp.feature.posts.domain.model.PokemonDto
-import com.lukianbat.test.pokeapp.feature.posts.domain.model.PokemonsListNetworkDto
+import com.lukianbat.test.pokeapp.feature.posts.data.datasource.api.model.PokemonsListNetworkDto
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,11 +35,17 @@ class PokemonsRepositoryImpl @Inject constructor(
     val ioExecutor: ExecutorService = Executors.newSingleThreadExecutor()
 
 
-    private fun insertResultIntoDb(list: PokemonsListNetworkDto) {
-
-        val start = cacheDataSource.getNextIndex()
+    private fun insertResultIntoDb(res: PokemonsListNetworkDto) {
+        val commonResponseList = res.results.map {
+            val detail =
+                apiDataSource.getPokemonDetail(it.name).execute().body() as PokemonDetailNetworkDto
+            PokemonCommonResponse(
+                it,
+                detail
+            )
+        }
         cacheDataSource.insert(
-            pokemonsConverter.convert(list, start)
+            pokemonsConverter.convert(commonResponseList)
         )
     }
 
@@ -71,6 +79,7 @@ class PokemonsRepositoryImpl @Inject constructor(
         val boundaryCallback =
             SubredditBoundaryCallback(
                 webservice = apiDataSource,
+                limit = LIMIT,
                 handleResponse = this::insertResultIntoDb,
                 ioExecutor = ioExecutor
             )

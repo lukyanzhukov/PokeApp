@@ -9,8 +9,6 @@ interface PokemonCacheDataSource {
     fun insert(posts: List<PokemonDto>)
     fun pokemons(): DataSource.Factory<Int, PokemonDto>
     fun delete()
-    fun getNextIndex(): Int
-
 }
 
 class PokemonCacheDataSourceImpl @Inject constructor(private val dao: PokemonDao) :
@@ -21,9 +19,6 @@ class PokemonCacheDataSourceImpl @Inject constructor(private val dao: PokemonDao
 
     override fun delete() = dao.delete()
 
-
-    override fun getNextIndex(): Int =
-        dao.getNextIndex()
 
     override fun insert(posts: List<PokemonDto>) = dao.insert(posts)
 

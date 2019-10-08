@@ -5,8 +5,8 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lukianbat.test.pokeapp.R
-import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.NetworkState
 import com.lukianbat.test.pokeapp.feature.posts.domain.model.PokemonDto
+import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.NetworkState
 
 class PostsAdapter(
     private val retryCallback: () -> Unit

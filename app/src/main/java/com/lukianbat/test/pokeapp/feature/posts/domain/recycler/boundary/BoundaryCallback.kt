@@ -3,6 +3,7 @@ package com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary
 import androidx.annotation.MainThread
 import androidx.paging.PagedList
 import com.lukianbat.test.pokeapp.feature.posts.data.datasource.api.PokemonListApiDataSource
+import com.lukianbat.test.pokeapp.feature.posts.data.datasource.api.model.PokemonsListNetworkDto
 import com.lukianbat.test.pokeapp.feature.posts.domain.model.*
 import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.helper.PagingRequestHelper
 import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.helper.createStatusLiveData
@@ -12,11 +13,12 @@ import retrofit2.Response
 import java.util.concurrent.Executor
 
 class SubredditBoundaryCallback(
+    private var limit: Int,
     private val webservice: PokemonListApiDataSource,
     private val handleResponse: (PokemonsListNetworkDto) -> Unit,
     private val ioExecutor: Executor
 ) : PagedList.BoundaryCallback<PokemonDto>() {
-
+    private var currentPage: Int = 1
     val helper =
         PagingRequestHelper(
             ioExecutor
@@ -34,7 +36,7 @@ class SubredditBoundaryCallback(
     @MainThread
     override fun onItemAtEndLoaded(itemAtEnd: PokemonDto) {
         helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
-            webservice.getPokemonsTopAfter(after = itemAtEnd.indexInResponse)
+            webservice.getPokemonsTopAfter(after = currentPage * limit)
                 .enqueue(createWebserviceCallback(it))
         }
     }
@@ -64,6 +66,7 @@ class SubredditBoundaryCallback(
                 call: Call<PokemonsListNetworkDto>,
                 response: Response<PokemonsListNetworkDto>
             ) {
+                currentPage++
                 insertItemsIntoDb(response, it)
             }
         }

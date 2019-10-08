@@ -20,7 +20,10 @@ class PokemonItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     init {
         view.setOnClickListener {
-            it.context.showMessage("!!!!!!!!!!", Duration.SHORT)
+            it.context.showMessage(
+                (post?.name ?: "pokemon") + " attack = " + post?.attack.toString(),
+                Duration.SHORT
+            )
         }
     }
 

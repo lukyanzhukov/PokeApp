@@ -1,6 +1,14 @@
 [
     {
+        "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_pokemon.xml",
+        "source": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\src\\main\\res\\layout\\activity_pokemon.xml"
+    },
+    {
         "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_pokemon_list.xml",
         "source": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\src\\main\\res\\layout\\activity_pokemon_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_pokemon.xml",
+        "source": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\src\\main\\res\\layout\\fragment_pokemon.xml"
     }
 ]

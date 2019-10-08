@@ -2,4 +2,7 @@
     <string name="app_name">PokeApp</string>
     <string name="retry">retry</string>
     <string name="item_pokemon_content_description">Pokemon</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -7,11 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lukianbat.test.pokeapp.R
 import com.lukianbat.test.pokeapp.feature.posts.domain.model.PokemonDto
 import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.NetworkState
+import com.lukianbat.test.pokeapp.feature.posts.presentation.recycler.viewholders.NetworkStateItemViewHolder
+import com.lukianbat.test.pokeapp.feature.posts.presentation.recycler.viewholders.PokemonItemViewHolder
 
 class PostsAdapter(
     private val retryCallback: () -> Unit
 ) : PagedListAdapter<PokemonDto, RecyclerView.ViewHolder>(POST_COMPARATOR) {
     private var networkState: NetworkState? = null
+    private lateinit var onItemClickListener: OnItemClickListener
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
             R.layout.pokemon_item -> (holder as PokemonItemViewHolder).bind(getItem(position))
@@ -36,7 +39,7 @@ class PostsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            R.layout.pokemon_item -> PokemonItemViewHolder.create(parent)
+            R.layout.pokemon_item -> PokemonItemViewHolder.create(parent, onItemClickListener)
             R.layout.network_state_item -> NetworkStateItemViewHolder.create(parent, retryCallback)
             else -> throw IllegalArgumentException("unknown view type $viewType")
         }
@@ -70,6 +73,10 @@ class PostsAdapter(
         } else if (hasExtraRow && previousState != newNetworkState) {
             notifyItemChanged(itemCount - 1)
         }
+    }
+
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.onItemClickListener = onItemClickListener
     }
 
     companion object {

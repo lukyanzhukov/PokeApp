@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
+ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
 MERGED from [androidx.databinding:databinding-adapters:3.5.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\fef5cd5954d44ade18a70dca6e717b5b\databinding-adapters-3.5.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:3.5.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\5ae495feaa635f162e793b816a77bf24\databinding-runtime-3.5.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.dagger:dagger-android-support:2.22.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\e259e9a6d4b7498f878aa52c5a8a3090\jetified-dagger-android-support-2.22.1\AndroidManifest.xml:17:1-22:12
@@ -12,6 +12,7 @@ MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\lukia\.gradle\caches\t
 MERGED from [androidx.core:core-ktx:1.1.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\09512de3cd1bb1e09be20eb16871e341\core-ktx-1.1.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\c4ef5ca596413fc5b60e6754465386ae\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.dagger:dagger-android:2.22.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\7556df999539e06e9a092e1281625dce\jetified-dagger-android-2.22.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\807e3f1d8a4640489d6f757b6903dd8e\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.paging:paging-runtime:2.1.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\95ad5410c11d208157ad2d289f460b8f\paging-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0-beta04] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\2cfaaa4996a30c6b53bb165696de2895\recyclerview-1.1.0-beta04\AndroidManifest.xml:17:1-24:12
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\d7b79938c20ce16d8739ac2e5fd928f4\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
@@ -20,6 +21,7 @@ MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\lukia\.gradle\caches\tra
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\dd5fc5a099aef28a67f93df4446647ae\appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\564388c32085138c359dac6cb7f3f8e1\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\a2a941aa4e6ab52251306224b3bb595c\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\55c801ebe9254aadd0bc70a611ebff34\media-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\d92e74c548111a4842462bb118fb0728\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.transition:transition:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\8cef4441aded13aed2a257520835e64a\transition-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\fa974f7789519f660b0500bf3e2ef9d2\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -43,28 +45,28 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\lukia\.g
 MERGED from [androidx.arch.core:core-runtime:2.0.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\b9eb51d204807a63281cec795242ed14\core-runtime-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\08e3700ddfb965a45c5d7f55d61c32b7\sqlite-framework-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\98783e3820b57b06260d3cf65d96675d\sqlite-2.0.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\325d0e9e870fa4d06b24c18c9ee90ee8\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\d83fe64bffd2c3a18b5121db5e3cda89\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\9444e3cf77d3306ef4a80ba458253a45\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\9233c21f8ab497c46d13c1cb3bad199c\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\325d0e9e870fa4d06b24c18c9ee90ee8\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\44841f9ca2f4417b2d14d4adf0514cad\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\b44a7b7fbe32f24489315f23b9a24783\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:4:5-41
 		INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
+		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
 		INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-25:12
+		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:1-28:12
 		INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:2:11-69
@@ -73,7 +75,7 @@ ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:6:22-64
 application
-ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:7:5-23:19
+ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:7:5-26:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\4b572913f1a424e7576b45966b745c44\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\4b572913f1a424e7576b45966b745c44\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\c4ef5ca596413fc5b60e6754465386ae\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
@@ -118,6 +120,12 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
 		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:20:27-74
+activity#com.lukianbat.test.pokeapp.feature.posts.presentation.PokemonActivity
+ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:23:9-25:20
+	android:parentActivityName
+		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:24:13-89
+	android:name
+		ADDED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml:23:19-103
 uses-sdk
 INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\lukia\AndroidStudioProjects\PokeAppl\app\src\main\AndroidManifest.xml
@@ -138,6 +146,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\lukia\.g
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\c4ef5ca596413fc5b60e6754465386ae\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.dagger:dagger-android:2.22.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\7556df999539e06e9a092e1281625dce\jetified-dagger-android-2.22.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.dagger:dagger-android:2.22.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\7556df999539e06e9a092e1281625dce\jetified-dagger-android-2.22.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\807e3f1d8a4640489d6f757b6903dd8e\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\807e3f1d8a4640489d6f757b6903dd8e\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.paging:paging-runtime:2.1.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\95ad5410c11d208157ad2d289f460b8f\paging-runtime-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.paging:paging-runtime:2.1.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\95ad5410c11d208157ad2d289f460b8f\paging-runtime-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.1.0-beta04] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\2cfaaa4996a30c6b53bb165696de2895\recyclerview-1.1.0-beta04\AndroidManifest.xml:20:5-22:41
@@ -154,6 +164,8 @@ MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\lukia\.gradl
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\564388c32085138c359dac6cb7f3f8e1\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\a2a941aa4e6ab52251306224b3bb595c\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\a2a941aa4e6ab52251306224b3bb595c\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\55c801ebe9254aadd0bc70a611ebff34\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\55c801ebe9254aadd0bc70a611ebff34\media-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\d92e74c548111a4842462bb118fb0728\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\d92e74c548111a4842462bb118fb0728\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.transition:transition:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\8cef4441aded13aed2a257520835e64a\transition-1.0.0\AndroidManifest.xml:20:5-44
@@ -200,14 +212,14 @@ MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\lukia\.gradle\cach
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\08e3700ddfb965a45c5d7f55d61c32b7\sqlite-framework-2.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\98783e3820b57b06260d3cf65d96675d\sqlite-2.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\98783e3820b57b06260d3cf65d96675d\sqlite-2.0.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\325d0e9e870fa4d06b24c18c9ee90ee8\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\325d0e9e870fa4d06b24c18c9ee90ee8\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\d83fe64bffd2c3a18b5121db5e3cda89\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\d83fe64bffd2c3a18b5121db5e3cda89\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\9444e3cf77d3306ef4a80ba458253a45\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\9444e3cf77d3306ef4a80ba458253a45\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\9233c21f8ab497c46d13c1cb3bad199c\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\9233c21f8ab497c46d13c1cb3bad199c\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\325d0e9e870fa4d06b24c18c9ee90ee8\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\325d0e9e870fa4d06b24c18c9ee90ee8\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\44841f9ca2f4417b2d14d4adf0514cad\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\44841f9ca2f4417b2d14d4adf0514cad\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\lukia\.gradle\caches\transforms-2\files-2.1\b44a7b7fbe32f24489315f23b9a24783\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41

@@ -1,11 +1,14 @@
 package com.lukianbat.test.pokeapp.feature.posts.presentation
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import com.lukianbat.test.pokeapp.BR
 import com.lukianbat.test.pokeapp.R
-import com.lukianbat.test.pokeapp.core.presentation.activity.BaseActivity
+import com.lukianbat.test.pokeapp.core.extensions.toast
+import com.lukianbat.test.pokeapp.core.presentation.activity.EventsActivity
 import com.lukianbat.test.pokeapp.databinding.ActivityPokemonListBinding
 import com.lukianbat.test.pokeapp.feature.posts.domain.model.PokemonDto
 import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.NetworkState
@@ -14,7 +17,22 @@ import kotlinx.android.synthetic.main.activity_pokemon_list.*
 import javax.inject.Inject
 
 class PokemonListActivity :
-    BaseActivity<ActivityPokemonListBinding, PokemonListViewModel>() {
+    EventsActivity<ActivityPokemonListBinding, PokemonListViewModel, PokemonListViewModel.EventsListener>(),
+    PokemonListViewModel.EventsListener {
+
+    override fun showMessage(message: String) {
+        toast(message)
+    }
+
+    override fun openPokemon(pokemonDto: PokemonDto) {
+        val intent = Intent(this, PokemonActivity::class.java)
+        val bundle = Bundle()
+        bundle.putParcelable("POKEMON", pokemonDto)
+        intent.putExtra("BUNDLE", bundle)
+        startActivity(intent)
+    }
+
+    override val eventsListener: PokemonListViewModel.EventsListener = this
 
     override val viewModelVariableId: Int = BR.viewModel
     @Inject
@@ -32,6 +50,7 @@ class PokemonListActivity :
         val adapter = PostsAdapter {
             viewModel.retry()
         }
+        adapter.setOnItemClickListener(viewModel)
         list.adapter = adapter
         viewModel.posts.observe(this, Observer<PagedList<PokemonDto>> {
             adapter.submitList(it)

@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import com.lukianbat.test.pokeapp.databinding.ActivityPokemonBindingImpl;
 import com.lukianbat.test.pokeapp.databinding.ActivityPokemonListBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
@@ -18,11 +19,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_ACTIVITYPOKEMONLIST = 1;
+  private static final int LAYOUT_ACTIVITYPOKEMON = 1;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(1);
+  private static final int LAYOUT_ACTIVITYPOKEMONLIST = 2;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(2);
 
   static {
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.lukianbat.test.pokeapp.R.layout.activity_pokemon, LAYOUT_ACTIVITYPOKEMON);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.lukianbat.test.pokeapp.R.layout.activity_pokemon_list, LAYOUT_ACTIVITYPOKEMONLIST);
   }
 
@@ -35,6 +39,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
+        case  LAYOUT_ACTIVITYPOKEMON: {
+          if ("layout/activity_pokemon_0".equals(tag)) {
+            return new ActivityPokemonBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_pokemon is invalid. Received: " + tag);
+        }
         case  LAYOUT_ACTIVITYPOKEMONLIST: {
           if ("layout/activity_pokemon_list_0".equals(tag)) {
             return new ActivityPokemonListBindingImpl(component, view);
@@ -86,18 +96,20 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(3);
+    static final SparseArray<String> sKeys = new SparseArray<String>(4);
 
     static {
       sKeys.put(0, "_all");
-      sKeys.put(1, "viewModel");
+      sKeys.put(1, "activity");
+      sKeys.put(2, "viewModel");
     }
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(1);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(2);
 
     static {
+      sKeys.put("layout/activity_pokemon_0", com.lukianbat.test.pokeapp.R.layout.activity_pokemon);
       sKeys.put("layout/activity_pokemon_list_0", com.lukianbat.test.pokeapp.R.layout.activity_pokemon_list);
     }
   }

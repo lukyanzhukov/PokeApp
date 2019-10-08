@@ -29,6 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.lukianbat.test.pokeapp.feature.posts.presentation.PokemonActivity"
+            android:parentActivityName="com.lukianbat.test.pokeapp.feature.posts.presentation.PokemonListActivity" >
+        </activity>
 
         <provider
             android:name="com.squareup.picasso.PicassoProvider"

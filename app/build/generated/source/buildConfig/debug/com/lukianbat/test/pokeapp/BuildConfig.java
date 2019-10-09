@@ -11,5 +11,7 @@ public final class BuildConfig {
   public static final int VERSION_CODE = 1;
   public static final String VERSION_NAME = "1.0";
   // Fields from default config.
+  public static final String BUNDLE_KEY = "BUNDLE";
+  public static final String POKEMON_KEY = "POKEMON";
   public static final String SERVER_API_URL = "https://pokeapi.co/api/v2/";
 }

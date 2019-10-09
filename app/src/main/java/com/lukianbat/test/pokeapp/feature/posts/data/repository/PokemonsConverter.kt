@@ -7,7 +7,8 @@ import javax.inject.Inject
 interface PokemonsConverter {
 
     fun convert(
-        response: List<PokemonCommonResponse>
+        response: List<PokemonCommonResponse>,
+        start: Int
     ): List<PokemonDto>
 }
 
@@ -20,9 +21,10 @@ class PokemonsConverterImpl @Inject constructor() :
     PokemonsConverter {
 
     override fun convert(
-        response: List<PokemonCommonResponse>
+        response: List<PokemonCommonResponse>,
+        start: Int
     ): List<PokemonDto> =
-        response.map { res ->
+        response.mapIndexed { index, res ->
             val dto = res.pokemonNetworkDto
             val detailDto = res.pokemonDetailNetworkDto
             val pokemonId = dto.url.split(URL_DIVIDER)
@@ -30,13 +32,17 @@ class PokemonsConverterImpl @Inject constructor() :
                     it.isBlank()
                 }.last()
             val imageUrl = IMAGE_URL + pokemonId + IMAGE_SUFFIX
-            val types = detailDto.types.map {
-                it.type.name
+            var types = ""
+            detailDto.types.forEach {
+                types = "$types${it.type.name}, "
             }
-            val abilities = detailDto.abilities.map {
-                it.ability.name
+            types = types.substring(0, types.length - 2)
+            var abilities = ""
+            detailDto.abilities.forEach {
+                abilities = "$abilities${it.ability.name}, "
             }
-            PokemonDto(
+            abilities = abilities.substring(0, abilities.length - 2)
+            val pokemonDto = PokemonDto(
                 dto.name,
                 imageUrl,
                 detailDto.stats[ATTACK_INDEX].base_stat,
@@ -47,6 +53,8 @@ class PokemonsConverterImpl @Inject constructor() :
                 detailDto.height,
                 detailDto.weight
             )
+            pokemonDto.indexInResponse = start + index
+            pokemonDto
         }
 
     companion object {

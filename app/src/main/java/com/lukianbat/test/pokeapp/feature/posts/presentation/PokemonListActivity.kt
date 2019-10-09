@@ -2,10 +2,12 @@ package com.lukianbat.test.pokeapp.feature.posts.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import com.lukianbat.test.pokeapp.BR
+import com.lukianbat.test.pokeapp.BuildConfig
 import com.lukianbat.test.pokeapp.R
 import com.lukianbat.test.pokeapp.core.extensions.toast
 import com.lukianbat.test.pokeapp.core.presentation.activity.EventsActivity
@@ -20,6 +22,7 @@ class PokemonListActivity :
     EventsActivity<ActivityPokemonListBinding, PokemonListViewModel, PokemonListViewModel.EventsListener>(),
     PokemonListViewModel.EventsListener {
 
+    private lateinit var adapter: PostsAdapter
     override fun showMessage(message: String) {
         toast(message)
     }
@@ -27,8 +30,8 @@ class PokemonListActivity :
     override fun openPokemon(pokemonDto: PokemonDto) {
         val intent = Intent(this, PokemonActivity::class.java)
         val bundle = Bundle()
-        bundle.putParcelable("POKEMON", pokemonDto)
-        intent.putExtra("BUNDLE", bundle)
+        bundle.putParcelable(BuildConfig.POKEMON_KEY, pokemonDto)
+        intent.putExtra(BuildConfig.BUNDLE_KEY, bundle)
         startActivity(intent)
     }
 
@@ -46,8 +49,35 @@ class PokemonListActivity :
         initSwipeToRefresh()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.sort_by_attack -> {
+                viewModel.sortByAttack()
+                initAdapter()
+                true
+            }
+            R.id.sort_by_defence -> {
+                viewModel.sortByDefence()
+                initAdapter()
+                true
+            }
+            R.id.sort_by_hp -> {
+                viewModel.sortByHp()
+                initAdapter()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.sort_menu, menu)
+        return true
+    }
+
     private fun initAdapter() {
-        val adapter = PostsAdapter {
+        adapter = PostsAdapter {
             viewModel.retry()
         }
         adapter.setOnItemClickListener(viewModel)

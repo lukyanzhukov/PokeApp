@@ -16,6 +16,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "SERVER_API_URL", '"https://pokeapi.co/api/v2/"'
+        buildConfigField "String", "POKEMON_KEY", '"POKEMON"'
+        buildConfigField "String", "BUNDLE_KEY", '"BUNDLE"'
 
     }
     buildTypes {

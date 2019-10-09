@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/file"
+        android:title="@string/sort_menu">
+        <menu>
+            <item
+                android:id="@+id/sort_by_attack"
+                android:title="@string/sort_by_attack" />
+            <item
+                android:id="@+id/sort_by_defence"
+                android:title="@string/sort_by_defence" />
+            <item
+                android:id="@+id/sort_by_hp"
+                android:title="@string/sort_by_hp" />
+        </menu>
+    </item>
+</menu>

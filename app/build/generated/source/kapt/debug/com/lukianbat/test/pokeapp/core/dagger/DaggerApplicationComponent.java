@@ -29,9 +29,9 @@ import com.lukianbat.test.pokeapp.feature.posts.data.repository.PokemonsReposito
 import com.lukianbat.test.pokeapp.feature.posts.data.repository.dagger.PokemonsRepositoryModule;
 import com.lukianbat.test.pokeapp.feature.posts.data.repository.dagger.PokemonsRepositoryModule_ProvidePokemonConverterFactory;
 import com.lukianbat.test.pokeapp.feature.posts.data.repository.dagger.PokemonsRepositoryModule_ProvidePokemonsRepositoryFactory;
-import com.lukianbat.test.pokeapp.feature.posts.domain.dagger.GetPostsUseCaseModule;
-import com.lukianbat.test.pokeapp.feature.posts.domain.dagger.GetPostsUseCaseModule_BindsGetPostsUseCaseFactory;
-import com.lukianbat.test.pokeapp.feature.posts.domain.usecase.GetPokemonListUseCase;
+import com.lukianbat.test.pokeapp.feature.posts.domain.dagger.GetPokemonsUseCaseModule;
+import com.lukianbat.test.pokeapp.feature.posts.domain.dagger.GetPokemonsUseCaseModule_BindsGetPostsUseCaseFactory;
+import com.lukianbat.test.pokeapp.feature.posts.domain.usecase.GetPokemonsUseCase;
 import com.lukianbat.test.pokeapp.feature.posts.presentation.PokemonListActivity;
 import com.lukianbat.test.pokeapp.feature.posts.presentation.PokemonListActivity_MembersInjector;
 import com.lukianbat.test.pokeapp.feature.posts.presentation.PokemonListViewModel;
@@ -61,7 +61,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
   private final PokemonsRepositoryModule pokemonsRepositoryModule;
 
-  private final GetPostsUseCaseModule getPostsUseCaseModule;
+  private final GetPokemonsUseCaseModule getPokemonsUseCaseModule;
 
   private Provider<RedditModule_RedditActivityInjector.PokemonListActivitySubcomponent.Factory>
       pokemonListActivitySubcomponentFactoryProvider;
@@ -69,7 +69,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
   private DaggerApplicationComponent(
       RetrofitModule retrofitModuleParam,
       RoomModule roomModuleParam,
-      GetPostsUseCaseModule getPostsUseCaseModuleParam,
+      GetPokemonsUseCaseModule getPokemonsUseCaseModuleParam,
       PokemonsRepositoryModule pokemonsRepositoryModuleParam,
       ApiDataSourceModule apiDataSourceModuleParam,
       CacheDataSourceModule cacheDataSourceModuleParam,
@@ -81,11 +81,11 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
     this.roomModule = roomModuleParam;
     this.cacheDataSourceModule = cacheDataSourceModuleParam;
     this.pokemonsRepositoryModule = pokemonsRepositoryModuleParam;
-    this.getPostsUseCaseModule = getPostsUseCaseModuleParam;
+    this.getPokemonsUseCaseModule = getPokemonsUseCaseModuleParam;
     initialize(
         retrofitModuleParam,
         roomModuleParam,
-        getPostsUseCaseModuleParam,
+        getPokemonsUseCaseModuleParam,
         pokemonsRepositoryModuleParam,
         apiDataSourceModuleParam,
         cacheDataSourceModuleParam,
@@ -174,16 +174,16 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
             pokemonsRepositoryModule));
   }
 
-  private GetPokemonListUseCase getGetPokemonListUseCase() {
-    return GetPostsUseCaseModule_BindsGetPostsUseCaseFactory.bindsGetPostsUseCase(
-        getPostsUseCaseModule, getPokemonsRepository());
+  private GetPokemonsUseCase getGetPokemonsUseCase() {
+    return GetPokemonsUseCaseModule_BindsGetPostsUseCaseFactory.bindsGetPostsUseCase(
+        getPokemonsUseCaseModule, getPokemonsRepository());
   }
 
   @SuppressWarnings("unchecked")
   private void initialize(
       final RetrofitModule retrofitModuleParam,
       final RoomModule roomModuleParam,
-      final GetPostsUseCaseModule getPostsUseCaseModuleParam,
+      final GetPokemonsUseCaseModule getPokemonsUseCaseModuleParam,
       final PokemonsRepositoryModule pokemonsRepositoryModuleParam,
       final ApiDataSourceModule apiDataSourceModuleParam,
       final CacheDataSourceModule cacheDataSourceModuleParam,
@@ -242,7 +242,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       return new DaggerApplicationComponent(
           new RetrofitModule(),
           new RoomModule(),
-          new GetPostsUseCaseModule(),
+          new GetPokemonsUseCaseModule(),
           new PokemonsRepositoryModule(),
           new ApiDataSourceModule(),
           new CacheDataSourceModule(),
@@ -282,7 +282,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private PokemonListViewModel getPokemonListViewModel() {
       return PostsActivityModule_ProvidePresenterFactory.providePresenter(
-          postsActivityModule, arg0, DaggerApplicationComponent.this.getGetPokemonListUseCase());
+          postsActivityModule, arg0, DaggerApplicationComponent.this.getGetPokemonsUseCase());
     }
 
     @Override

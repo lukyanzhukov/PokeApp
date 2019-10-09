@@ -7,6 +7,7 @@ import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.lukianbat.test.pokeapp.databinding.ActivityPokemonBindingImpl;
+import com.lukianbat.test.pokeapp.databinding.ActivityPokemonBindingLandImpl;
 import com.lukianbat.test.pokeapp.databinding.ActivityPokemonListBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
@@ -42,6 +43,9 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         case  LAYOUT_ACTIVITYPOKEMON: {
           if ("layout/activity_pokemon_0".equals(tag)) {
             return new ActivityPokemonBindingImpl(component, view);
+          }
+          if ("layout-land/activity_pokemon_0".equals(tag)) {
+            return new ActivityPokemonBindingLandImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for activity_pokemon is invalid. Received: " + tag);
         }
@@ -106,10 +110,11 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(2);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(3);
 
     static {
       sKeys.put("layout/activity_pokemon_0", com.lukianbat.test.pokeapp.R.layout.activity_pokemon);
+      sKeys.put("layout-land/activity_pokemon_0", com.lukianbat.test.pokeapp.R.layout.activity_pokemon);
       sKeys.put("layout/activity_pokemon_list_0", com.lukianbat.test.pokeapp.R.layout.activity_pokemon_list);
     }
   }

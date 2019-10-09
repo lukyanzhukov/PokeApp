@@ -5,4 +5,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sort_menu">sort pokemon</string>
+    <string name="sort_by_attack">sort by attack</string>
+    <string name="sort_by_defence">sort by defence</string>
+    <string name="sort_by_hp">sort by hp</string>
 </resources>

@@ -22,7 +22,10 @@ import java.util.concurrent.Executors
 import javax.inject.Inject
 
 interface PokemonsRepository {
-    fun posts(): Listing<PokemonDto>
+    fun pokemons(): Listing<PokemonDto>
+    fun pokemonsByAttack(): Listing<PokemonDto>
+    fun pokemonsByDefence(): Listing<PokemonDto>
+    fun pokemonsByHp(): Listing<PokemonDto>
 }
 
 class PokemonsRepositoryImpl @Inject constructor(
@@ -36,6 +39,7 @@ class PokemonsRepositoryImpl @Inject constructor(
 
 
     private fun insertResultIntoDb(res: PokemonsListNetworkDto) {
+        val start = cacheDataSource.getIndex()
         val commonResponseList = res.results.map {
             val detail =
                 apiDataSource.getPokemonDetail(it.name).execute().body() as PokemonDetailNetworkDto
@@ -45,7 +49,7 @@ class PokemonsRepositoryImpl @Inject constructor(
             )
         }
         cacheDataSource.insert(
-            pokemonsConverter.convert(commonResponseList)
+            pokemonsConverter.convert(commonResponseList, start)
         )
     }
 
@@ -74,7 +78,21 @@ class PokemonsRepositoryImpl @Inject constructor(
         return networkState
     }
 
-    override fun posts(): Listing<PokemonDto> {
+    override fun pokemonsByAttack(): Listing<PokemonDto> =
+        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByAttack(), LIMIT))
+
+
+    override fun pokemonsByDefence(): Listing<PokemonDto> =
+        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByDefence(), LIMIT))
+
+
+    override fun pokemonsByHp(): Listing<PokemonDto> =
+        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByHp(), LIMIT))
+
+    override fun pokemons(): Listing<PokemonDto> =
+        pokemons(LivePagedListBuilder(cacheDataSource.pokemons(), LIMIT))
+
+    private fun pokemons(livePagedListBuilder: LivePagedListBuilder<Int, PokemonDto>): Listing<PokemonDto> {
 
         val boundaryCallback =
             SubredditBoundaryCallback(
@@ -87,7 +105,7 @@ class PokemonsRepositoryImpl @Inject constructor(
         val refreshState = Transformations.switchMap(refreshTrigger) {
             refresh()
         }
-        val livePagedList = LivePagedListBuilder(cacheDataSource.pokemons(), LIMIT)
+        val livePagedList = livePagedListBuilder
             .setBoundaryCallback(boundaryCallback)
             .build()
 
@@ -105,6 +123,6 @@ class PokemonsRepositoryImpl @Inject constructor(
     }
 
     companion object {
-        const val LIMIT = 20
+        const val LIMIT = 30
     }
 }

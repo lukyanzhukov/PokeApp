@@ -10,8 +10,20 @@ interface PokemonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(posts: List<PokemonDto>)
 
+    @Query("SELECT MAX(indexInResponse) + 1 FROM pokemons")
+    fun getNextIndex(): Int
+
     @Query("SELECT * FROM pokemons ORDER BY attack ASC")
-    fun posts(): DataSource.Factory<Int, PokemonDto>
+    fun pokemonsByAttack(): DataSource.Factory<Int, PokemonDto>
+
+    @Query("SELECT * FROM pokemons ORDER BY defence ASC")
+    fun pokemonsByDefence(): DataSource.Factory<Int, PokemonDto>
+
+    @Query("SELECT * FROM pokemons ORDER BY hp ASC")
+    fun pokemonsByHp(): DataSource.Factory<Int, PokemonDto>
+
+    @Query("SELECT * FROM pokemons ORDER BY indexInResponse ASC")
+    fun pokemons(): DataSource.Factory<Int, PokemonDto>
 
     @Query("DELETE FROM pokemons")
     fun delete()

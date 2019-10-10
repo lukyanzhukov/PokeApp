@@ -12,12 +12,16 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.lukianbat.test.pokeapp.R;
 import com.lukianbat.test.pokeapp.feature.posts.presentation.PokemonListViewModel;
 import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class ActivityPokemonListBinding extends ViewDataBinding {
+  @NonNull
+  public final FloatingActionButton fab;
+
   @NonNull
   public final RecyclerView list;
 
@@ -31,8 +35,10 @@ public abstract class ActivityPokemonListBinding extends ViewDataBinding {
   protected PokemonListViewModel mViewModel;
 
   protected ActivityPokemonListBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      RecyclerView list, LinearLayout root, SwipeRefreshLayout swipeRefresh) {
+      FloatingActionButton fab, RecyclerView list, LinearLayout root,
+      SwipeRefreshLayout swipeRefresh) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.fab = fab;
     this.list = list;
     this.root = root;
     this.swipeRefresh = swipeRefresh;

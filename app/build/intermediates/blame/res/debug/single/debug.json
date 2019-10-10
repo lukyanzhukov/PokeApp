@@ -476,6 +476,10 @@
         "source": "C:\\Users\\lukia\\.gradle\\caches\\transforms-2\\files-2.1\\a73c3974fa47bb64187237bb2a2898dc\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_repeat_black_24dp.xml.flat",
+        "source": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\src\\main\\res\\drawable\\ic_repeat_black_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_radio.xml.flat",
         "source": "C:\\Users\\lukia\\.gradle\\caches\\transforms-2\\files-2.1\\a73c3974fa47bb64187237bb2a2898dc\\appcompat-1.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
     },
@@ -1564,12 +1568,12 @@
         "source": "C:\\Users\\lukia\\.gradle\\caches\\transforms-2\\files-2.1\\55c801ebe9254aadd0bc70a611ebff34\\media-1.0.0\\res\\layout\\notification_media_action.xml"
     },
     {
-        "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_vector_test.xml.flat",
-        "source": "C:\\Users\\lukia\\.gradle\\caches\\transforms-2\\files-2.1\\dd5fc5a099aef28a67f93df4446647ae\\appcompat-resources-1.1.0\\res\\drawable\\abc_vector_test.xml"
-    },
-    {
         "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\res\\merged\\debug\\menu_sort_menu.xml.flat",
         "source": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\src\\main\\res\\menu\\sort_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_vector_test.xml.flat",
+        "source": "C:\\Users\\lukia\\.gradle\\caches\\transforms-2\\files-2.1\\dd5fc5a099aef28a67f93df4446647ae\\appcompat-resources-1.1.0\\res\\drawable\\abc_vector_test.xml"
     },
     {
         "merged": "C:\\Users\\lukia\\AndroidStudioProjects\\PokeAppl\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_holo_light.xml.flat",

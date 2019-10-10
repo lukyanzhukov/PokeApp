@@ -1054,6 +1054,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_pokeball_pokemon
+drawable ic_repeat_black_24dp
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1179,6 +1180,7 @@ id error_msg
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id file
 id fill
 id fill_horizontal

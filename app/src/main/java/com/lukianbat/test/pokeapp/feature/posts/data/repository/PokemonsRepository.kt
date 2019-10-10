@@ -1,10 +1,12 @@
 package com.lukianbat.test.pokeapp.feature.posts.data.repository
 
+import android.util.Log
 import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.paging.LivePagedListBuilder
+import com.lukianbat.test.pokeapp.core.extensions.info
 import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.Listing
 import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.NetworkState
 import com.lukianbat.test.pokeapp.feature.posts.domain.recycler.boundary.SubredditBoundaryCallback
@@ -23,6 +25,7 @@ import javax.inject.Inject
 
 interface PokemonsRepository {
     fun pokemons(): Listing<PokemonDto>
+    fun randPokemons(): Listing<PokemonDto>
     fun pokemonsByAttack(): Listing<PokemonDto>
     fun pokemonsByDefence(): Listing<PokemonDto>
     fun pokemonsByHp(): Listing<PokemonDto>
@@ -57,7 +60,7 @@ class PokemonsRepositoryImpl @Inject constructor(
     private fun refresh(): LiveData<NetworkState> {
         val networkState = MutableLiveData<NetworkState>()
         networkState.value = NetworkState.LOADING
-        apiDataSource.getPokemonsTop().enqueue(
+        apiDataSource.getPokemonsTop(BEGIN).enqueue(
             object : Callback<PokemonsListNetworkDto> {
                 override fun onFailure(call: Call<PokemonsListNetworkDto>, t: Throwable) {
                     networkState.value = NetworkState.error(t.message)
@@ -79,27 +82,43 @@ class PokemonsRepositoryImpl @Inject constructor(
     }
 
     override fun pokemonsByAttack(): Listing<PokemonDto> =
-        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByAttack(), LIMIT))
+        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByAttack(), LIMIT), BEGIN)
 
 
     override fun pokemonsByDefence(): Listing<PokemonDto> =
-        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByDefence(), LIMIT))
+        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByDefence(), LIMIT), BEGIN)
 
 
     override fun pokemonsByHp(): Listing<PokemonDto> =
-        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByHp(), LIMIT))
+        pokemons(LivePagedListBuilder(cacheDataSource.pokemonsByHp(), LIMIT), BEGIN)
 
     override fun pokemons(): Listing<PokemonDto> =
-        pokemons(LivePagedListBuilder(cacheDataSource.pokemons(), LIMIT))
+        pokemons(LivePagedListBuilder(cacheDataSource.pokemons(), LIMIT), BEGIN)
 
-    private fun pokemons(livePagedListBuilder: LivePagedListBuilder<Int, PokemonDto>): Listing<PokemonDto> {
+    override fun randPokemons(): Listing<PokemonDto> {
+        ioExecutor.execute {
+            cacheDataSource.delete()
+        }
+        val rand = (0..MAX_BEGIN).random()
+        info(rand.toString())
+        return pokemons(
+            LivePagedListBuilder(cacheDataSource.pokemons(), LIMIT),
+            rand
+        )
+    }
+
+    private fun pokemons(
+        livePagedListBuilder: LivePagedListBuilder<Int, PokemonDto>,
+        startIndex: Int
+    ): Listing<PokemonDto> {
 
         val boundaryCallback =
             SubredditBoundaryCallback(
                 webservice = apiDataSource,
                 limit = LIMIT,
                 handleResponse = this::insertResultIntoDb,
-                ioExecutor = ioExecutor
+                ioExecutor = ioExecutor,
+                startIndex = startIndex
             )
         val refreshTrigger = MutableLiveData<Unit>()
         val refreshState = Transformations.switchMap(refreshTrigger) {
@@ -124,5 +143,7 @@ class PokemonsRepositoryImpl @Inject constructor(
 
     companion object {
         const val LIMIT = 30
+        const val MAX_BEGIN = 777
+        const val BEGIN = 0
     }
 }

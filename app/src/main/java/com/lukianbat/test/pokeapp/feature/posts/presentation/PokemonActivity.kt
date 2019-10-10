@@ -13,6 +13,7 @@ class PokemonActivity : SimpleActivity<ActivityPokemonBinding>() {
 
     val pokemon = MutableLiveData<PokemonDto>()
     override val layoutId: Int = R.layout.activity_pokemon
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundle = intent.getBundleExtra(BuildConfig.BUNDLE_KEY)

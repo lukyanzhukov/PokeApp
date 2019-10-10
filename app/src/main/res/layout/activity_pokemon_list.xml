@@ -9,23 +9,36 @@
             type="com.lukianbat.test.pokeapp.feature.posts.presentation.PokemonListViewModel" />
     </data>
 
-    <LinearLayout
-        android:id="@+id/root"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_refresh"
+        <LinearLayout
+            android:id="@+id/root"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/list"
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refresh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical"
-                app:layoutManager="LinearLayoutManager" />
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </LinearLayout>
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    app:layoutManager="LinearLayoutManager" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onFabClick"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_repeat_black_24dp" />
+    </FrameLayout>
 </layout>

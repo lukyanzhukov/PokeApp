@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import com.lukianbat.test.pokeapp.BR
@@ -22,7 +23,14 @@ class PokemonListActivity :
     EventsActivity<ActivityPokemonListBinding, PokemonListViewModel, PokemonListViewModel.EventsListener>(),
     PokemonListViewModel.EventsListener {
 
+    @Inject
+    override lateinit var viewModel: PokemonListViewModel
+
     private lateinit var adapter: PostsAdapter
+    override val eventsListener: PokemonListViewModel.EventsListener = this
+    override val viewModelVariableId: Int = BR.viewModel
+    override val layoutId = R.layout.activity_pokemon_list
+
     override fun showMessage(message: String) {
         toast(message)
     }
@@ -35,14 +43,6 @@ class PokemonListActivity :
         startActivity(intent)
     }
 
-    override val eventsListener: PokemonListViewModel.EventsListener = this
-
-    override val viewModelVariableId: Int = BR.viewModel
-    @Inject
-    override lateinit var viewModel: PokemonListViewModel
-
-    override val layoutId = R.layout.activity_pokemon_list
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initAdapter()
@@ -52,18 +52,24 @@ class PokemonListActivity :
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.sort_by_attack -> {
+                removeObservers()
                 viewModel.sortByAttack()
                 initAdapter()
+                initSwipeToRefresh()
                 true
             }
             R.id.sort_by_defence -> {
+                removeObservers()
                 viewModel.sortByDefence()
                 initAdapter()
+                initSwipeToRefresh()
                 true
             }
             R.id.sort_by_hp -> {
+                removeObservers()
                 viewModel.sortByHp()
                 initAdapter()
+                initSwipeToRefresh()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -74,6 +80,12 @@ class PokemonListActivity :
         val inflater = menuInflater
         inflater.inflate(R.menu.sort_menu, menu)
         return true
+    }
+
+    private fun removeObservers() {
+        viewModel.posts.removeObservers(this)
+        viewModel.networkState.removeObservers(this)
+        viewModel.refreshState.removeObservers(this)
     }
 
     private fun initAdapter() {
@@ -97,5 +109,12 @@ class PokemonListActivity :
         swipe_refresh.setOnRefreshListener {
             viewModel.refresh()
         }
+    }
+
+    fun onFabClick(view: View) {
+        removeObservers()
+        viewModel.randsPokemons()
+        initAdapter()
+        initSwipeToRefresh()
     }
 }

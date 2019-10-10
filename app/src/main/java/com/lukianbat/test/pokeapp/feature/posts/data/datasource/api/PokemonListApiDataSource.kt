@@ -6,7 +6,7 @@ import retrofit2.Call
 import javax.inject.Inject
 
 interface PokemonListApiDataSource {
-    fun getPokemonsTop(): Call<PokemonsListNetworkDto>
+    fun getPokemonsTop(index: Int): Call<PokemonsListNetworkDto>
     fun getPokemonsTopAfter(after: Int): Call<PokemonsListNetworkDto>
     fun getPokemonDetail(pokemonName: String): Call<PokemonDetailNetworkDto>
 }
@@ -19,12 +19,13 @@ class PokemonListApiDataSourceImpl @Inject constructor(
         api.getPokemon(pokemonName)
 
 
-    override fun getPokemonsTop(): Call<PokemonsListNetworkDto> = api.getPokemons(0, LIMIT)
+    override fun getPokemonsTop(index: Int): Call<PokemonsListNetworkDto> =
+        api.getPokemons(index, LIMIT)
 
     override fun getPokemonsTopAfter(after: Int): Call<PokemonsListNetworkDto> =
         api.getPokemons(after, LIMIT)
 
     companion object {
-        const val LIMIT = 20
+        const val LIMIT = 30
     }
 }

@@ -14,6 +14,7 @@ import java.util.concurrent.Executor
 
 class SubredditBoundaryCallback(
     private var limit: Int,
+    private val startIndex: Int,
     private val webservice: PokemonListApiDataSource,
     private val handleResponse: (PokemonsListNetworkDto) -> Unit,
     private val ioExecutor: Executor
@@ -28,7 +29,7 @@ class SubredditBoundaryCallback(
     @MainThread
     override fun onZeroItemsLoaded() {
         helper.runIfNotRunning(PagingRequestHelper.RequestType.INITIAL) {
-            webservice.getPokemonsTop()
+            webservice.getPokemonsTop(startIndex)
                 .enqueue(createWebserviceCallback(it))
         }
     }

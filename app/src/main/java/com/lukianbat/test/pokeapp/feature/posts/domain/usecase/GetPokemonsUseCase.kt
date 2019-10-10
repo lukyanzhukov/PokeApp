@@ -8,5 +8,5 @@ interface GetPokemonsUseCase {
     fun getPokemonsByAttack(): Listing<PokemonDto>
     fun getPokemonsByDefence(): Listing<PokemonDto>
     fun getPokemonsByHp(): Listing<PokemonDto>
-
+    fun getRandPokemons(): Listing<PokemonDto>
 }

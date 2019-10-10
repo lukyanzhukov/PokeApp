@@ -8,6 +8,8 @@ import javax.inject.Inject
 
 class GetPokemonsUseCaseImpl @Inject constructor(private val repository: PokemonsRepository) :
     GetPokemonsUseCase {
+    override fun getRandPokemons(): Listing<PokemonDto> = repository.randPokemons()
+
     override fun getPokemons(): Listing<PokemonDto> = repository.pokemons()
 
     override fun getPokemonsByDefence(): Listing<PokemonDto> = repository.pokemonsByDefence()

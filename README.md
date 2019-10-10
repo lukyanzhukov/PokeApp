@@ -40,3 +40,8 @@
 ● Picasso    
 # Summary
 В приложениии реализованы постраничная подгрузка элементов, кэширование данных, сортировка списка по выбранным полям, а так же остальные поставленные задачи.
+# Скриншоты
+![скриншот](https://github.com/LukianBat/PokeApp/blob/master/1.jpg)        
+![скриншот](https://github.com/LukianBat/PokeApp/blob/master/2.jpg)        
+![скриншот](https://github.com/LukianBat/PokeApp/blob/master/3.jpg)        
+![скриншот](https://github.com/LukianBat/PokeApp/blob/master/4.jpg)        

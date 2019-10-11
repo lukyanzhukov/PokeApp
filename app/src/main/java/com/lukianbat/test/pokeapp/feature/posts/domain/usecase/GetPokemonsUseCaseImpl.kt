@@ -16,7 +16,7 @@ class GetPokemonsUseCaseImpl @Inject constructor(private val repository: Pokemon
 
     override fun getPokemonsByHp(): Listing<PokemonDto> = repository.pokemonsByHp()
 
-    override fun getPokemonsByAttack(): Listing<PokemonDto> = repository.pokemonsByDefence()
+    override fun getPokemonsByAttack(): Listing<PokemonDto> = repository.pokemonsByAttack()
 
 
 }

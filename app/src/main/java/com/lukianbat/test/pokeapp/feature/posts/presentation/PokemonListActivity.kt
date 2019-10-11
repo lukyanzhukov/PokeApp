@@ -10,6 +10,7 @@ import androidx.paging.PagedList
 import com.lukianbat.test.pokeapp.BR
 import com.lukianbat.test.pokeapp.BuildConfig
 import com.lukianbat.test.pokeapp.R
+import com.lukianbat.test.pokeapp.core.extensions.info
 import com.lukianbat.test.pokeapp.core.extensions.toast
 import com.lukianbat.test.pokeapp.core.presentation.activity.EventsActivity
 import com.lukianbat.test.pokeapp.databinding.ActivityPokemonListBinding

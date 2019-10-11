@@ -1,6 +1,5 @@
 package com.lukianbat.test.pokeapp.feature.posts.data.repository
 
-import android.util.Log
 import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -100,7 +99,6 @@ class PokemonsRepositoryImpl @Inject constructor(
             cacheDataSource.delete()
         }
         val rand = (0..MAX_BEGIN).random()
-        info(rand.toString())
         return pokemons(
             LivePagedListBuilder(cacheDataSource.pokemons(), LIMIT),
             rand
